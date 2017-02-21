@@ -27,7 +27,6 @@ CREATE TABLE `animal` (
   `a_nom` varchar(45) NOT NULL,
   `a_age` int(11) DEFAULT NULL,
   `a_fk_m_id` int(11) DEFAULT NULL,
-  `animalcol` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`a_id`),
   KEY `m_id_idx` (`a_fk_m_id`),
   CONSTRAINT `m_id` FOREIGN KEY (`a_fk_m_id`) REFERENCES `maison` (`m_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -40,6 +39,7 @@ CREATE TABLE `animal` (
 
 LOCK TABLES `animal` WRITE;
 /*!40000 ALTER TABLE `animal` DISABLE KEYS */;
+INSERT INTO `animal` VALUES ('1234567989','toto',5,1);
 /*!40000 ALTER TABLE `animal` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -51,7 +51,7 @@ DROP TABLE IF EXISTS `historique`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `historique` (
-  `h_id` int(11) NOT NULL,
+  `h_id` int(11) NOT NULL AUTO_INCREMENT,
   `h_horodatage` datetime NOT NULL,
   `h_sortie` tinyint(4) NOT NULL,
   `h_fk_a_id` varchar(45) DEFAULT NULL,
@@ -78,10 +78,10 @@ DROP TABLE IF EXISTS `maison`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `maison` (
-  `m_id` int(11) NOT NULL,
+  `m_id` int(11) NOT NULL AUTO_INCREMENT,
   `m_adresse` varchar(45) NOT NULL,
   PRIMARY KEY (`m_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90,6 +90,7 @@ CREATE TABLE `maison` (
 
 LOCK TABLES `maison` WRITE;
 /*!40000 ALTER TABLE `maison` DISABLE KEYS */;
+INSERT INTO `maison` VALUES (1,'1 rue test');
 /*!40000 ALTER TABLE `maison` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -115,6 +116,7 @@ CREATE TABLE `utilisateur` (
 
 LOCK TABLES `utilisateur` WRITE;
 /*!40000 ALTER TABLE `utilisateur` DISABLE KEYS */;
+INSERT INTO `utilisateur` VALUES ('jordan.dejoux@outlook.fr','Dejoux','jordan','azerty');
 /*!40000 ALTER TABLE `utilisateur` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -142,6 +144,7 @@ CREATE TABLE `utilisateur-maison` (
 
 LOCK TABLES `utilisateur-maison` WRITE;
 /*!40000 ALTER TABLE `utilisateur-maison` DISABLE KEYS */;
+INSERT INTO `utilisateur-maison` VALUES ('jordan.dejoux@outlook.fr',1);
 /*!40000 ALTER TABLE `utilisateur-maison` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -154,4 +157,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-07 16:11:48
+-- Dump completed on 2017-02-21 11:06:07

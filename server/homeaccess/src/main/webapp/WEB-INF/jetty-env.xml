@@ -2,10 +2,10 @@
 <!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN"
         "http://www.eclipse.org/jetty/configure_9_0.dtd">
 
-<Configure id="nfcpaiement" class="org.eclipse.jetty.maven.plugin.JettyWebAppContext">
-    <New id="NFCCasinoDB" class="org.eclipse.jetty.plus.jndi.Resource">
+<Configure id="homeaccess" class="org.eclipse.jetty.maven.plugin.JettyWebAppContext">
+    <New id="CatPass" class="org.eclipse.jetty.plus.jndi.Resource">
         <Arg></Arg>
-        <Arg>jdbc/catpass</Arg>
+        <Arg>java:comp/env/jdbc/catpass</Arg>
         <Arg>
             <New class="com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource">
                 <Set name="Url">jdbc:mysql://localhost:3306/</Set>

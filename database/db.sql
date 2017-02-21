@@ -44,6 +44,32 @@ INSERT INTO `animal` VALUES ('1234567989','toto',5,1);
 UNLOCK TABLES;
 
 --
+-- Table structure for table `capteur`
+--
+
+DROP TABLE IF EXISTS `capteur`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `capteur` (
+  `c_id` varchar(45) NOT NULL,
+  `c_fk_m_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`c_id`),
+  KEY `c_fk_m_id_idx` (`c_fk_m_id`),
+  CONSTRAINT `c_fk_m_id` FOREIGN KEY (`c_fk_m_id`) REFERENCES `maison` (`m_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `capteur`
+--
+
+LOCK TABLES `capteur` WRITE;
+/*!40000 ALTER TABLE `capteur` DISABLE KEYS */;
+INSERT INTO `capteur` VALUES ('azerty',1);
+/*!40000 ALTER TABLE `capteur` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `historique`
 --
 
@@ -157,4 +183,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-21 11:06:07
+-- Dump completed on 2017-02-21 14:46:32

@@ -9,7 +9,7 @@ import javax.ws.rs.core.Response;
 /**
  * Created by Jordan on 07/02/2017.
  */
-@Path("/homeacess")
+@Path("/access")
 public class AccessImpl implements AccessService {
 
     @Override

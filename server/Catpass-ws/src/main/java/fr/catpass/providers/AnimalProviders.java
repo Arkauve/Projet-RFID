@@ -25,5 +25,6 @@ public class AnimalProviders {
     public static void insertAnimal(String GUID, String name, int years, int idHome) throws SQLException {
         DataBaseAccess db = DataBaseAccessImpl.getDbConnection();
         db.insert(String.format(INSERT_ANIMAL, GUID, name, years, idHome));
+        HistoricProviders.insertNewHistoric(GUID);
     }
 }

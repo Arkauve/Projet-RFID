@@ -18,7 +18,7 @@ public class HistoricProviders {
     public static void insertHistoric(String GUID) throws SQLException{
         DataBaseAccess db = DataBaseAccessImpl.getDbConnection();
         Date date = new Date();
-        db.insert(String.format(INSERT_HISTORIC, new java.sql.Date(date.getTime()), getAnimalIsOut(GUID), GUID));
+        db.insert(String.format(INSERT_HISTORIC, new java.sql.Timestamp(date.getTime()), getAnimalIsOut(GUID), GUID));
     }
 
     public static boolean getAnimalIsOut(String GUID) throws SQLException {
@@ -30,5 +30,11 @@ public class HistoricProviders {
         }
         else
             return false;
+    }
+
+    public static void insertNewHistoric(String GUID) throws SQLException{
+        DataBaseAccess db = DataBaseAccessImpl.getDbConnection();
+        Date date = new Date();
+        db.insert(String.format(INSERT_HISTORIC, new java.sql.Timestamp(date.getTime()), false, GUID));
     }
 }

@@ -1,6 +1,7 @@
 package fr.catpass.services;
 
 import fr.catpass.providers.AnimalProviders;
+import fr.catpass.providers.HistoricProviders;
 
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
@@ -15,8 +16,10 @@ public class AccessImpl implements AccessService {
     @Override
     public Response getAutorisation(String GUID, String capteurId) {
         try {
-            if(AnimalProviders.autorisation(GUID, capteurId))
+            if(AnimalProviders.autorisation(GUID, capteurId)) {
+                HistoricProviders.insertHistoric(GUID);
                 return Response.status(Response.Status.ACCEPTED).build();
+            }
             else
                 return Response.status(Response.Status.UNAUTHORIZED).build();
         } catch (SQLException sqle) {

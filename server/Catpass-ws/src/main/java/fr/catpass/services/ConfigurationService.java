@@ -9,11 +9,8 @@ import javax.ws.rs.core.Response;
  */
 public interface ConfigurationService {
 
+    //{email:<email>,password:<password>,firstName:<firsNtame>,lastName:<lastName>,adress:<adress>,idCapteur:<idCapteur>}
     @POST
     @Path("/")
     Response createConfiguration(String config);
-
-    @POST
-    @Path("/test")
-    Response postTest(String email);
 }

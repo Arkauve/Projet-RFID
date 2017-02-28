@@ -43,9 +43,4 @@ public class ConfigurationImpl implements ConfigurationService {
             return Response.status(Response.Status.UNSUPPORTED_MEDIA_TYPE).entity(e.getMessage()).build();
         }
     }
-
-    @Override
-    public Response postTest(String email) {
-        return Response.ok().build();
-    }
 }

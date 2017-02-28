@@ -8,13 +8,13 @@ public class Animal {
     private String id;
     private String name;
     private int years;
-    private Home home;
+    private int idHome;
 
-    public Animal(String id, String name, int years, Home maison) {
+    public Animal(String id, String name, int years, int idHome) {
         this.id = id;
         this.name = name;
         this.years = years;
-        this.home = home;
+        this.idHome = idHome;
     }
 
     public String getId() {
@@ -41,11 +41,11 @@ public class Animal {
         this.years = years;
     }
 
-    public Home getHome() {
-        return home;
+    public int getIdHome() {
+        return idHome;
     }
 
-    public void setHome(Home home) {
-        this.home = home;
+    public void setIdHome(int idHome) {
+        this.idHome = idHome;
     }
 }

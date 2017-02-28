@@ -23,7 +23,6 @@ public class AccessImpl implements AccessService {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(sqle.getMessage()).build();
         } catch (Exception e){
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
-
         }
     }
 }

@@ -7,14 +7,14 @@ public class Animal {
 
     private String id;
     private String name;
-    private int age;
-    private Maison maison;
+    private int years;
+    private Home home;
 
-    public Animal(String id, String name, int age, Maison maison) {
+    public Animal(String id, String name, int years, Home maison) {
         this.id = id;
         this.name = name;
-        this.age = age;
-        this.maison = maison;
+        this.years = years;
+        this.home = home;
     }
 
     public String getId() {
@@ -33,19 +33,19 @@ public class Animal {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
+    public int getYears() {
+        return years;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setYears(int years) {
+        this.years = years;
     }
 
-    public Maison getMaison() {
-        return maison;
+    public Home getHome() {
+        return home;
     }
 
-    public void setMaison(Maison maison) {
-        this.maison = maison;
+    public void setHome(Home home) {
+        this.home = home;
     }
 }

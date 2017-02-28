@@ -69,16 +69,6 @@ public class DataBaseAccessImpl implements DataBaseAccess {
         return toArrayOfMap(resultSet);
     }
 
-    @Override
-    public ResultSet concurrentQuery(String query) throws SQLException {
-        statement = currentConnection.createStatement(
-                ResultSet.TYPE_SCROLL_INSENSITIVE,
-                ResultSet.CONCUR_UPDATABLE);
-
-        result = statement.executeQuery(query);
-        return result;
-    }
-
 
     @Override
     public boolean update(String query) throws SQLException {
@@ -88,21 +78,14 @@ public class DataBaseAccessImpl implements DataBaseAccess {
     }
 
     @Override
-    public void trustedInsertFromMap(Map<String, String> data) throws SQLException {
-        // TODO
-    }
-
-    @Override
-    public boolean callUpdateProcedure(String query) throws SQLException {
-        preparedStatment = currentConnection.prepareCall(query);
-        return preparedStatment.execute();
-    }
-
-    @Override
-    public Map<String, String> callSelectProcedureAsMap(String query) throws SQLException {
-        preparedStatment = currentConnection.prepareCall(query);
-        ResultSet rs = preparedStatment.executeQuery();
-        return toMap(rs);
+    public int insert(String query) throws SQLException {
+        statement = currentConnection.createStatement();
+        statement.executeUpdate(query,Statement.RETURN_GENERATED_KEYS);
+        ResultSet generatedKeys = statement.getGeneratedKeys();
+        if (generatedKeys.next())
+            return generatedKeys.getInt(1);
+        else
+            return 0;
     }
 
     @Override

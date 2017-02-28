@@ -12,17 +12,12 @@ public interface DataBaseAccess extends AutoCloseable
 
     ResultSet query(String query) throws SQLException;
 
-
     Map<String, String> findOneAsMap(String query) throws SQLException;
 
     ArrayList<Map<String, String>> findAllAsMap(String query) throws SQLException;
 
-    ResultSet concurrentQuery(String query) throws SQLException;
-
     boolean update(String query) throws SQLException;
-    void trustedInsertFromMap(Map<String, String> data) throws SQLException;
 
-    boolean callUpdateProcedure(String query) throws SQLException;
+    int insert(String query) throws SQLException;
 
-    Map<String, String> callSelectProcedureAsMap(String query) throws SQLException;
 }

@@ -12,7 +12,7 @@
 	</properties>
 
     <modules>
-		<module>homeaccess</module>
+		<module>catpass-ws</module>
         <!-- add your modules here -->
     </modules>
 
@@ -61,8 +61,8 @@
 						<contextHandlers>
 							<!-- Add your other webapps in contextHandler -->
 							<contextHandler implementation="org.eclipse.jetty.maven.plugin.JettyWebAppContext">
-								<war>${project.basedir}/homeaccess/target/homeaccess-ws-1.0.0.war</war>
-								<contextPath>/homeaccess</contextPath>
+								<war>${project.basedir}/Catpass-ws/target/catpass-ws-1.0.0.war</war>
+								<contextPath>/catpass</contextPath>
 							</contextHandler>
 
 						</contextHandlers>

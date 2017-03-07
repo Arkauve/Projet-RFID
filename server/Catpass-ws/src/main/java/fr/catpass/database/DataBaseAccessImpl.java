@@ -65,7 +65,6 @@ public class DataBaseAccessImpl implements DataBaseAccess {
     @Override
     public ArrayList<Map<String, String>> findAllAsMap(String query) throws SQLException {
         ResultSet resultSet = this.query(query);
-
         return toArrayOfMap(resultSet);
     }
 
@@ -126,7 +125,7 @@ public class DataBaseAccessImpl implements DataBaseAccess {
 
         ResultSetMetaData rsmd = rs.getMetaData();
 
-        for (int i = 0; i < rsmd.getColumnCount(); i++){
+        for (int i = 1; i <= rsmd.getColumnCount(); i++){
             result.put(rsmd.getColumnName(i), rs.getString(i));
         }
 

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CatPAssApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
+    <Grid Margin="0,0,0.4,-0.2">
         <Label x:Name="label" Content="CatPass" HorizontalAlignment="Left" Margin="213,25,0,0" VerticalAlignment="Top" Height="36" Width="77" FontWeight="Bold" FontSize="18"/>
         <Label x:Name="label1" Content="Mail :" HorizontalAlignment="Left" Height="28" Margin="125,78,0,0" VerticalAlignment="Top" Width="88" RenderTransformOrigin="0.485,0.124"/>
         <Label x:Name="label1_Copy" Content="Prénom :" HorizontalAlignment="Left" Height="28" Margin="125,144,0,0" VerticalAlignment="Top" Width="88" RenderTransformOrigin="0.485,0.124"/>

@@ -25,33 +25,48 @@ namespace CatPAssApp
     {
         public MainWindow()
         {
-            InitializeComponent();
+            string fileName = "config.txt";
+            string pathString = System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, fileName);
+            
+            if (System.IO.File.Exists(pathString))
+            {
+                NFCReader.establishContext();
+                NFCReader.SelectDevice();
+                CaptorDetection captor = new CaptorDetection(NFCReader.ListReaders()[0].ToString());
+                captor.run();
+            }
+            else
+                InitializeComponent();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             NFCReader.establishContext();
             NFCReader.SelectDevice();
-            Dictionary<string, string> result;
+            string idCaptor = NFCReader.ListReaders()[0].ToString();
             String myMesage = "{" +
                             "email:" + TxMail.Text +
                             ",password:" + PxPass.Password.ToString() +
                             ",firstName:" + TxFirstname.Text +
                             ",lastName:" + TxName.Text +
                             ",adress:" + TxAdress.Text +
-                            ",idCapteur:" + NFCReader.ListReaders()[0].ToString() +
+                            ",idCapteur:" + idCaptor +
                             "}";
-            //result = HttpRequest.sendPOST("http://localhost:8080/catpass/configuration/",myMesage);
             string CodeResponse = "201";
             string Description = "Created";
-            string ContentResponse = "";
+            int idHome = 4;
+            //Dictionary<string, string> result;
+            //result = HttpRequest.sendPOST("http://localhost:8080/catpass/configuration/", myMesage);
+            //string ContentResponse = "";
             //result.TryGetValue("Code", out CodeResponse);
             //result.TryGetValue("Description", out Description);
             //result.TryGetValue("ContentResponse", out ContentResponse);
-            if(CodeResponse == HttpStatusCode.Created.GetHashCode().ToString()) {
+            //idHome = int.Parse(ContentResponse);
+            if (CodeResponse == HttpStatusCode.Created.GetHashCode().ToString()) {
                 MessageBox.Show("Enregistrement réussi", "Enregistrement", MessageBoxButton.OK, MessageBoxImage.Information);
-                RegsiterWindow window = new RegsiterWindow();
+                RegsiterWindow window = new RegsiterWindow(idHome, idCaptor);
                 window.Show();
+                this.Close();
             }
             else
             {

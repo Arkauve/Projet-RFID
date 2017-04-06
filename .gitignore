@@ -1,7 +1,10 @@
 ﻿# Jetbrains IDEs
+
 *.idea/
+
 *.iml
 target/
+
 *.class
 bidon
 # Ignore Visual Studio 

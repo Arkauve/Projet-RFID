@@ -23,7 +23,7 @@ namespace CaptorNFC
         public static Card.SCARD_READERSTATE RdrState;
         public static Card.SCARD_IO_REQUEST pioSendRequest;
 
-        public static void establishContext()
+        public static void establishContext() //1
         {
             retCode = Card.SCardEstablishContext(Card.SCARD_SCOPE_SYSTEM, 0, 0, ref hContext);
             if (retCode != Card.SCARD_S_SUCCESS)
@@ -34,7 +34,7 @@ namespace CaptorNFC
             }
         }
 
-        public static void SelectDevice()
+        public static void SelectDevice() //2
         {
             List<string> availableReaders = ListReaders();
             RdrState = new Card.SCARD_READERSTATE();
@@ -42,7 +42,7 @@ namespace CaptorNFC
             RdrState.RdrName = readername;
         }
 
-        public static List<string> ListReaders()
+        public static List<string> ListReaders() 
         {
             int ReaderCount = 0;
             List<string> AvailableReaderList = new List<string>();
@@ -104,6 +104,24 @@ namespace CaptorNFC
                 return false;
             }
             return true;
+        }
+
+        public static string waitConnectCard()
+        {
+            connActive = true;
+
+            while (connActive)
+            {
+                retCode = Card.SCardConnect(hContext, readername, Card.SCARD_SHARE_SHARED,
+                      Card.SCARD_PROTOCOL_T0 | Card.SCARD_PROTOCOL_T1, ref hCard, ref Protocol);
+
+                if (retCode == Card.SCARD_S_SUCCESS)
+                {
+                    connActive = false;
+                    return getcardUID();
+                }
+            }
+            return "Error";
         }
 
         public static string getcardUID()//only for mifare 1k cards

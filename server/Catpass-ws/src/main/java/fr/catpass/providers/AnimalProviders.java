@@ -9,7 +9,7 @@ import java.sql.SQLException;
  * Created by Jordan on 21/02/2017.
  */
 public class AnimalProviders {
-    private static String AUTORISATION = "SELECT * FROM catpass.animal where a_id = %1$s and a_fk_m_id = " +
+    private static String AUTORISATION = "SELECT * FROM catpass.animal where a_id = '%1$s' and a_fk_m_id = " +
             "(SELECT c_fk_m_id FROM catpass.capteur WHERE c_id = '%2$s')";
 
     private static String INSERT_ANIMAL = "INSERT INTO `catpass`.`animal`(`a_id`,`a_nom`,`a_age`,`a_fk_m_id`)" +

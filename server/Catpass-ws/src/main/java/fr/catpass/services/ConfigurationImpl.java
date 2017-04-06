@@ -31,7 +31,7 @@ public class ConfigurationImpl implements ConfigurationService {
             if(idHome>0){
                 UserProviders.insertUserHome(obj.getString("email"), idHome);
                 CapteurProviders.createCapteur(new Capteur(obj.getString("idCapteur"),idHome));
-                return Response.status(Response.Status.CREATED).build();
+                return Response.status(Response.Status.CREATED).entity(idHome).build();
             }
             else
                 return Response.status(Response.Status.BAD_REQUEST).build();

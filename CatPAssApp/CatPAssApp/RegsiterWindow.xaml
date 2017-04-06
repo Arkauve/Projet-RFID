@@ -8,8 +8,9 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Label x:Name="label" Content="CatPass" HorizontalAlignment="Left" Margin="213,25,0,0" VerticalAlignment="Top" Height="36" Width="77" FontWeight="Bold" FontSize="18"/>
-        <Button x:Name="BtRegister" Content="Ajouter un animal" HorizontalAlignment="Left" Height="41" Margin="200,154,0,0" VerticalAlignment="Top" Width="107" Click="button_Click"/>
-        <Label x:Name="label1" Content="Enregistrer vos animaux" HorizontalAlignment="Left" Height="27" Margin="173,66,0,0" VerticalAlignment="Top" Width="164" FontSize="14"/>
+        <Button x:Name="BtRegister" Content="Ajouter un animal" HorizontalAlignment="Left" Height="41" Margin="132,256,0,0" VerticalAlignment="Top" Width="107" Click="button_Click"/>
+        <Label x:Name="label1" Content="Enregistrer vos animaux" HorizontalAlignment="Left" Height="27" Margin="178,66,0,0" VerticalAlignment="Top" Width="164" FontSize="14"/>
+        <Button x:Name="BtFinish" Content="Terminer" HorizontalAlignment="Left" Height="41" Margin="271,256,0,0" VerticalAlignment="Top" Width="107" Click="buttonFinish_Click"/>
 
     </Grid>
 </Window>

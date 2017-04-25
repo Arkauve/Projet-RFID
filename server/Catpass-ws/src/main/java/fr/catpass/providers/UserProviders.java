@@ -28,10 +28,13 @@ public class UserProviders {
         db.insert(String.format(INSERT_USER_HOME,email,idHome));
     }
 
-    public static boolean getUser(String email, String password)throws SQLException{
+    public static User getUser(String email, String password)throws SQLException{
+        User user = null;
         DataBaseAccess db = DataBaseAccessImpl.getDbConnection();
         ResultSet rs = db.query(String.format(CONNEXION,email,password));
-        if(rs.first()) return true;
-        return false;
+        if(rs.first()) {
+            user = new User(rs.getString("u_mail"), rs.getString("u_prenom"), rs.getString("u_nom"));
+        }
+        return user;
     }
 }

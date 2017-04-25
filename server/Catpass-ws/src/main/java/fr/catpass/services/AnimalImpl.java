@@ -1,12 +1,14 @@
 package fr.catpass.services;
 
 import fr.catpass.providers.AnimalProviders;
+import fr.catpass.resources.Animal;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * Created by Jordan on 28/02/2017.
@@ -24,6 +26,18 @@ public class AnimalImpl implements AnimalService {
         }catch(SQLException sqle){
             return Response.status(Response.Status.BAD_REQUEST).entity(sqle.getMessage()).build();
         }catch(Exception e){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
+        }
+    }
+
+    @Override
+    public Response getAllAnimaux(int idHome) {
+        try {
+            ArrayList<Animal> historics = AnimalProviders.getAllAnimaux(idHome);
+            return Response.ok().entity(historics).build();
+        } catch (SQLException sqle) {
+            return Response.status(Response.Status.BAD_REQUEST).entity(sqle.getMessage()).build();
+        } catch (Exception e){
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
         }
     }

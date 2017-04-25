@@ -29,8 +29,8 @@ public class DataBaseAccessImpl implements DataBaseAccess {
             DataSource databaseSource = (DataSource)ic.lookup("java:comp/env/jdbc/catpass");
             this.currentConnection = databaseSource.getConnection();
 
-        } catch (Exception sqle) {
-            sqle.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

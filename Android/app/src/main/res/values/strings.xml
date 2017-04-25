@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CatPass</string>
+    <string name="title_activity_nfc_reader">NfcReader</string>
 </resources>

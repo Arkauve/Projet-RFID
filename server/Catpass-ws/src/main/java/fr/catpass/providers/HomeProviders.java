@@ -33,7 +33,7 @@ public class HomeProviders {
         for (int idHome:idHomes) {
             resultSet = db.query(String.format(HOMES,  idHome));
             if(resultSet.first()){
-                homes1.add(new Home(resultSet.getInt("h_id"),resultSet.getString("h_adresse")));
+                homes1.add(new Home(resultSet.getInt("m_id"),resultSet.getString("m_adresse")));
             }
         }
         return homes1;

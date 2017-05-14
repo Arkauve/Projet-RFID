@@ -6,16 +6,16 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:text="VOS MAISONS"
+        android:text="VOS ANIMAUX"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2"
-        android:textAlignment="center"
-        android:textSize="24sp" />
+        android:id="@+id/textView3"
+        android:textSize="24sp"
+        android:textAlignment="center" />
 
     <ListView
-        android:id="@+id/listHome"
+        android:id="@+id/listAnimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/row_maison"></ListView>
+        tools:listitem="@layout/row_animal"></ListView>
 </LinearLayout>

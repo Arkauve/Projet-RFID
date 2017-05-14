@@ -40,7 +40,7 @@ public class AnimalProviders {
         DataBaseAccess db = DataBaseAccessImpl.getDbConnection();
         ArrayList<Map<String,String>> resultats = db.findAllAsMap(String.format(ANIMAUX,  idHome));
         for (Map<String,String> animaux : resultats){
-            animaux1.add(new Animal(animaux.get("a_id"),animaux.get("a_nom"),Integer.parseInt(animaux.get("a_years")),idHome));
+            animaux1.add(new Animal(animaux.get("a_id"),animaux.get("a_nom"),Integer.parseInt(animaux.get("a_age")),idHome));
         }
         return animaux1;
     }

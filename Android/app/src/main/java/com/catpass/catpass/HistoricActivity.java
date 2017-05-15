@@ -58,7 +58,7 @@ public class HistoricActivity extends AppCompatActivity {
     }
 
     public void getHistorics() {
-        String URL = "http://192.168.1.16:8080/catpass/historic/" + animal.getId();
+        String URL = getResources().getString(R.string.URL)+"/historic/" + animal.getId();
         String params = "";
         Http requete = new Http();
         requete.execute("GET", URL, params);

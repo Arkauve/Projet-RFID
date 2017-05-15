@@ -47,13 +47,16 @@ public class AccueilActivity extends AppCompatActivity {
                 Intent intent = getIntent();
                 finish();
                 startActivity(intent);
+            case R.id.lecture:
+                Intent intentValidate = new Intent(AccueilActivity.this, NfcReader.class);
+                startActivity(intentValidate);
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
     public void getAllHome() {
-        String URL = "http://192.168.1.16:8080/catpass/authentification/" + user.getEmail();
+        String URL = getResources().getString(R.string.URL)+"/authentification/" + user.getEmail();
         String params = "";
         Http requete = new Http();
         requete.execute("GET", URL, params);

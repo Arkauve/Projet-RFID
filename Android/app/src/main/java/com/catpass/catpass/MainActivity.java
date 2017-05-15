@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getConnexion() {
-        String URL  = "http://192.168.1.16:8080/catpass/authentification?email=" + editTextEmail.getText().toString() + "&password=" + editTextPassword.getText().toString();
+        String URL  = getResources().getString(R.string.URL)+"/authentification?email=" + editTextEmail.getText().toString() + "&password=" + editTextPassword.getText().toString();
         Http requete = new Http();
         requete.execute("GET",URL,"");
         String result ="";

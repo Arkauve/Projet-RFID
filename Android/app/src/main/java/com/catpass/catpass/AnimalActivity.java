@@ -52,7 +52,7 @@ public class AnimalActivity extends AppCompatActivity {
     }
 
     public void getAllAnimal() {
-        String URL = "http://192.168.1.16:8080/catpass/animal/" + home.getId();
+        String URL = getResources().getString(R.string.URL)+"/animal/" + home.getId();
         String params = "";
         Http requete = new Http();
         requete.execute("GET", URL, params);

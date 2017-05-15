@@ -1,6 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/refresh"
         android:title="Actualiser" />
+    <item android:id="@+id/lecture"
+    android:title="Lire un animal" />
     <item android:id="@+id/help"
         android:title="Help" />
 </menu>

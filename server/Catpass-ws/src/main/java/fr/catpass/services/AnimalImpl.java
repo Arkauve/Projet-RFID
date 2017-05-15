@@ -41,4 +41,16 @@ public class AnimalImpl implements AnimalService {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
         }
     }
+
+    @Override
+    public Response getAnimal(String GUID) {
+        try {
+            Animal animal = AnimalProviders.getAnimal(GUID);
+            return Response.ok().entity(animal).build();
+        } catch (SQLException sqle) {
+            return Response.status(Response.Status.BAD_REQUEST).entity(sqle.getMessage()).build();
+        } catch (Exception e){
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
+        }
+    }
 }

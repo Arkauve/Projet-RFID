@@ -17,6 +17,9 @@ public class Animal {
         this.idHome = idHome;
     }
 
+    public Animal() {
+    }
+
     public String getId() {
         return id;
     }

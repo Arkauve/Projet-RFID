@@ -22,6 +22,9 @@ public class AnimalProviders {
 
     private static String ANIMAUX = "SELECT * FROM catpass.animal where a_fk_m_id = '%1$d'";
 
+
+    private static String ANIMAL = "SELECT * FROM catpass.animal where a_id = '%1$s'";
+
     public static boolean autorisation(String GUID,String capteurId) throws SQLException {
         DataBaseAccess db = DataBaseAccessImpl.getDbConnection();
         ResultSet rs = db.query(String.format(AUTORISATION, GUID, capteurId));
@@ -43,5 +46,15 @@ public class AnimalProviders {
             animaux1.add(new Animal(animaux.get("a_id"),animaux.get("a_nom"),Integer.parseInt(animaux.get("a_age")),idHome));
         }
         return animaux1;
+    }
+
+    public static Animal getAnimal(String idAnimal) throws SQLException {
+        Animal animal = new Animal();
+        DataBaseAccess db = DataBaseAccessImpl.getDbConnection();
+        ResultSet result = db.query(String.format(ANIMAL,  idAnimal));
+       if(result.first())
+            animal = new Animal(result.getString("a_id"),result.getString("a_nom"),result.getInt("a_age"),result.getInt("a_fk_m_id"));
+
+        return animal;
     }
 }

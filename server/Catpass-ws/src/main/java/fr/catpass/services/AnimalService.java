@@ -19,4 +19,10 @@ public interface AnimalService {
     @GET
     @Path("/{idHome}")
     Response getAllAnimaux(@PathParam("idHome") int idHome);
+
+    @GET
+    @Path("/get/{GUID}")
+    Response getAnimal(@PathParam("GUID") String GUID);
+
+
 }

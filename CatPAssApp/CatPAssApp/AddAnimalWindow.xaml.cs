@@ -36,9 +36,12 @@ namespace CatPAssApp
             NFCReader.establishContext();
             NFCReader.SelectDevice();
             UID = NFCReader.waitConnectCard();
+            
+            char[] MyChar = { ' ' };
+            String strUID = UID.TrimStart(MyChar);
 
             String myMesage = "{" +
-                            "GUID:" + UID +
+                            "GUID:" + strUID +
                             ",name:" + TxName.Text +
                             ",years:" + TxAge.Text +
                             ",idHome:" + this.idHome +

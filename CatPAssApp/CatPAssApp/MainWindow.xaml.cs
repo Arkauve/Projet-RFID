@@ -55,13 +55,13 @@ namespace CatPAssApp
             string CodeResponse = "201";
             string Description = "Created";
             int idHome = 4;
-            //Dictionary<string, string> result;
-            //result = HttpRequest.sendPOST("http://localhost:8080/catpass/configuration/", myMesage);
-            //string ContentResponse = "";
-            //result.TryGetValue("Code", out CodeResponse);
-            //result.TryGetValue("Description", out Description);
-            //result.TryGetValue("ContentResponse", out ContentResponse);
-            //idHome = int.Parse(ContentResponse);
+            Dictionary<string, string> result;
+            result = HttpRequest.sendPOST("http://localhost:8080/catpass/configuration/", myMesage);
+            string ContentResponse = "";
+            result.TryGetValue("Code", out CodeResponse);
+            result.TryGetValue("Description", out Description);
+            result.TryGetValue("ContentResponse", out ContentResponse);
+            idHome = int.Parse(ContentResponse);
             if (CodeResponse == HttpStatusCode.Created.GetHashCode().ToString()) {
                 MessageBox.Show("Enregistrement réussi", "Enregistrement", MessageBoxButton.OK, MessageBoxImage.Information);
                 RegsiterWindow window = new RegsiterWindow(idHome, idCaptor);

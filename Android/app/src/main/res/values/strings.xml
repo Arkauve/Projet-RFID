@@ -2,4 +2,5 @@
     <string name="app_name">CatPass</string>
     <string name="title_activity_nfc_reader">NfcReader</string>
     <string name="URL">http://192.168.43.160:8080/catpass</string>
+    <string name="title_activity_profil_animal">ProfilAnimalActivity</string>
 </resources>

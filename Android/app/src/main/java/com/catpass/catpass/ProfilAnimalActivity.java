@@ -51,8 +51,9 @@ public class ProfilAnimalActivity extends AppCompatActivity {
 
     private void load(){
         animal = getIntent().getExtras().getParcelable("Animal");
+        String years = String.valueOf(animal.getYears());
         name.setText(animal.getName());
-        age.setText(animal.getYears());
+        age.setText(years);
         historic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
